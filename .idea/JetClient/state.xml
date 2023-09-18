@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="draftsState">
+      <draftsState>
+        <option name="requests">
+          <list>
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="b690091d-05ab-4ced-b348-f6ad2e931216" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="queryParams">
+                <list>
+                  <queryParamState>
+                    <option name="key" value="username" />
+                    <option name="value" value="1234" />
+                  </queryParamState>
+                  <queryParamState>
+                    <option name="key" value="password" />
+                    <option name="value" value="1234" />
+                  </queryParamState>
+                  <queryParamState>
+                    <option name="key" value="academicDegree" />
+                    <option name="value" value="BSc" />
+                  </queryParamState>
+                  <queryParamState>
+                    <option name="key" value="fullName" />
+                    <option name="value" value="1234" />
+                  </queryParamState>
+                </list>
+              </option>
+              <option name="url" value="http://localhost:8080/SubmitSignUp?username=1234&amp;password=1234&amp;academicDegree=BSc&amp;fullName=1234" />
+            </requestState>
+          </list>
+        </option>
+      </draftsState>
+    </option>
+    <option name="id" value="f4250e09-1dcc-447d-a256-f306a899e137" />
+  </component>
+</project>
