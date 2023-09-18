@@ -19,11 +19,13 @@ import java.util.List;
 @Controller("articleController")
 public class ArticleController {
 
-
+private String username;
     @GetMapping("/addArticle")
     public String addArticle(@CookieValue(defaultValue = "token") String token,Model model) {
         Teacher teacher = TeacherRepository.find(token);
         if (teacher != null) {
+            username = teacher.getUsername();
+            model.addAttribute("username",username);
             List<Magazine> magazines = new MagazineRepository().getAllMagazines();
             model.addAttribute("magazines", magazines);
             return "addArticle";

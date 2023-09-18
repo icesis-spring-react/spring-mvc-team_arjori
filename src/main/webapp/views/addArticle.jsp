@@ -33,6 +33,11 @@
 
     <input type="submit" value="Submit article!">
 </form>
-
+<br>
+<a href="${pageContext.request.contextPath}/${username}">Welcome</a>
+<br>
+<br>
+<a href="${pageContext.request.contextPath}/AddMagazine">Add Magazine</a>
+<br>
 </body>
 </html>
