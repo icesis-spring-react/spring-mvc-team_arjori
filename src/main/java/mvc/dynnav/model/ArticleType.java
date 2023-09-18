@@ -1,5 +1,5 @@
 package mvc.dynnav.model;
 
-public enum MagazineType {
+public enum ArticleType {
     INDEXED, NON_INDEXED
 }

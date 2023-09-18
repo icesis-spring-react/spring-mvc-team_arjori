@@ -27,4 +27,7 @@ public class TeacherRepository {
         }
         return null;
     }
+    public static List<Teacher> getTeacherList(){
+        return teacherList;
+    }
 }
