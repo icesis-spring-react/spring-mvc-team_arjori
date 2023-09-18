@@ -48,6 +48,59 @@
         </option>
       </draftsState>
     </option>
+    <option name="folders">
+      <list>
+        <folderState>
+          <option name="id" value="8d7f5c47-437b-4674-94ea-0d4786568ab9" />
+          <option name="name" value="xd" />
+          <option name="requests">
+            <list>
+              <requestState>
+                <option name="body">
+                  <bodyState>
+                    <option name="formData">
+                      <list>
+                        <formDataParameterState>
+                          <option name="key" value="title" />
+                          <option name="value" value="SIIII" />
+                        </formDataParameterState>
+                        <formDataParameterState>
+                          <option name="key" value="studentsCount" />
+                          <option name="value" value="10" />
+                        </formDataParameterState>
+                        <formDataParameterState>
+                          <option name="key" value="status" />
+                          <option name="value" value="COM" />
+                        </formDataParameterState>
+                      </list>
+                    </option>
+                    <option name="type" value="FORM_DATA" />
+                  </bodyState>
+                </option>
+                <option name="headers">
+                  <list>
+                    <headerState>
+                      <option name="key" value="Content-Type" />
+                      <option name="value" value="multipart/form-data" />
+                    </headerState>
+                  </list>
+                </option>
+                <option name="id" value="ac5b0c85-6de1-448f-85e0-803d1af56619" />
+                <option name="method" value="POST" />
+                <option name="name" value="xd" />
+                <option name="url" value="http://localhost:8080/SubmitAddProject" />
+              </requestState>
+            </list>
+          </option>
+          <option name="sortWeight" value="1000000" />
+          <option name="syncProperties">
+            <synchronizationPropertiesState>
+              <option name="folderPath" value="C:\Users\ricar\Desktop\Icesi\compu. net. 2\spring-mvc-team_arjori\.jetclient" />
+            </synchronizationPropertiesState>
+          </option>
+        </folderState>
+      </list>
+    </option>
     <option name="id" value="f4250e09-1dcc-447d-a256-f306a899e137" />
   </component>
 </project>

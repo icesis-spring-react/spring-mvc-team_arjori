@@ -27,6 +27,11 @@
         <label for="in_progress">In Progress</label><br> <br>
 
         <input type="submit" value="New Project">
+
+        <br> <br>
+
+        <a href="${pageContext.request.contextPath}/GoBack">Go back to welcome page</a>
+        <br>
     </form>
 </body>
 </html>
