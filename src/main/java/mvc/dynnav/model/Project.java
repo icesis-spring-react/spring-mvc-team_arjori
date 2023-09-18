@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Project {
     private String title;
-    private int StudentCount;
+    private int studentCount;
 
     @Value("#{T(mvc.dynnav.model.ProjectStatus).IN_PROGRESS}")
     private ProjectStatus status;
@@ -16,7 +16,7 @@ public class Project {
 
     public Project(String title, int studentCount, ProjectStatus status) {
         this.title = title;
-        this.StudentCount = studentCount;
+        this.studentCount = studentCount;
         this.status = status;
     }
 
@@ -29,11 +29,11 @@ public class Project {
     }
 
     public int getStudentCount() {
-        return StudentCount;
+        return studentCount;
     }
 
     public void setStudentCount(int studentCount) {
-        StudentCount = studentCount;
+        studentCount = studentCount;
     }
 
     public ProjectStatus getStatus() {

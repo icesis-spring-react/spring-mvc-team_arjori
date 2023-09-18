@@ -12,5 +12,25 @@
 </head>
 <body>
 
+    <h1>Projects Table</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Students Count</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <c:forEach var="proyecto" items="${proyectos}">
+                <tr>
+                    <td>${proyecto.title}</td>
+                    <td>${proyecto.studentCount}</td>
+                    <td>${proyecto.status}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>
