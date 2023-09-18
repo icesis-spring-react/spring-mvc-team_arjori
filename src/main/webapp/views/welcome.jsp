@@ -27,7 +27,10 @@
             </tr>
         </c:forEach>
         </tbody>
-    </table> <br> <button id="addArticle" name="addArticle">+</button> <br>
+    </table>
+    <br>
+        <a href="${pageContext.request.contextPath}/AddArticle">Add Article</a>
+    <br>
 
     <h2>Projects</h2>
 
@@ -49,6 +52,9 @@
                 </tr>
             </c:forEach>
         </tbody>
-    </table> <br> <button id="addProject" name="addProject">+</button> <br>
+    </table>
+    <br>
+        <a href="${pageContext.request.contextPath}/AddProject">Add Project</a>
+    <br>
 </body>
 </html>

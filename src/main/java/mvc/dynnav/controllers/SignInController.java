@@ -27,10 +27,10 @@ public class SignInController {
             cookie.setMaxAge(30 * 60);
             response.addCookie(cookie);
 
-            redirectView.setUrl("/" + username);
+            redirectView.setUrl("/dynnav_war_exploded/" + username);
         }
         else
-            redirectView.setUrl("/SignIn");
+            redirectView.setUrl("/dynnav_war_exploded/SignIn");
 
         return redirectView;
     }
