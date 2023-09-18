@@ -20,11 +20,11 @@ public class ProjectRepository {
     }
 
 
-    public List<Project> getAllProjects() {
+    public static List<Project> findAll() {
         return projects;
     }
 
-    public Project getProjectByTitle(String title) {
+    public static Project findByTitle(String title) {
         for (Project project : projects) {
             if (project.getTitle().equalsIgnoreCase(title)) {
                 return project;
@@ -33,7 +33,7 @@ public class ProjectRepository {
         return null;
     }
 
-    public void addProject(Project project) {
+    public static void add(Project project) {
         projects.add(project);
     }
 }
