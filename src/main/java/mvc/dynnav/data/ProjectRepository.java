@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository("projectRepository")
 public class ProjectRepository {
-    private static List<Project> projects = new ArrayList<>();
+    private static final List<Project> projects = new ArrayList<>();
 
     static {
         projects.add(new Project("Project 1", 10, ProjectStatus.IN_PROGRESS));

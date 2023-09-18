@@ -1,18 +1,36 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lyca22
-  Date: 9/17/23
-  Time: 5:38 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Welcome to ICESI Scholar</title>
 </head>
 <body>
+    <h2>Welcome ${fullName}.</h2>
+    <h3>Academic Grade: ${academicGrade}.</h3>
 
-    <h1>Projects Table</h1>
+    <h2>Articles</h2>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Magazine Name</th>
+            <th>Category</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach var="article" items="${articles}">
+            <tr>
+                <td>${article.title}</td>
+                <td>${article.studentCount}</td>
+                <td>${article.status}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table> <br> <button id="addArticle" name="addArticle">+</button> <br>
+
+    <h2>Projects</h2>
+
     <table border="1">
         <thead>
             <tr>
@@ -23,14 +41,14 @@
         </thead>
 
         <tbody>
-            <c:forEach var="proyecto" items="${proyectos}">
+            <c:forEach var="project" items="${projects}">
                 <tr>
-                    <td>${proyecto.title}</td>
-                    <td>${proyecto.studentCount}</td>
-                    <td>${proyecto.status}</td>
+                    <td>${project.title}</td>
+                    <td>${project.studentCount}</td>
+                    <td>${project.status}</td>
                 </tr>
             </c:forEach>
         </tbody>
-    </table>
+    </table> <br> <button id="addProject" name="addProject">+</button> <br>
 </body>
 </html>

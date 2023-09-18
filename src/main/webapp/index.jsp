@@ -5,7 +5,7 @@
     <title>ICESI Scholar</title>
 </head>
 <body>
-<h2>ICESI Scholar:</h2> <br>
+<h2>ICESI Scholar:</h2>
 <a href="${pageContext.request.contextPath}/SignIn"><h2>Sign In!</h2></a>
 <a href="${pageContext.request.contextPath}/SignUp"><h2>Sign Up!</h2></a>
 </body>

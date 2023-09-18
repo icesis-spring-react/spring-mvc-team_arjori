@@ -1,7 +1,10 @@
 package mvc.dynnav.controllers;
 
+import mvc.dynnav.data.TeacherRepository;
+import mvc.dynnav.model.Teacher;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,9 +13,13 @@ import org.springframework.web.server.ResponseStatusException;
 @Controller
 public class WelcomeController {
     @GetMapping("/{username}")
-    public String welcome(@CookieValue(defaultValue = "token") String token, @PathVariable String username) {
-        if (username.equals(token))
+    public String welcome(@CookieValue(defaultValue = "token") String token, @PathVariable String username, Model model) {
+        Teacher teacher = TeacherRepository.find(username);
+        if (teacher != null && username.equals(token)) {
+            model.addAttribute("fullName", teacher.getFullName());
+            model.addAttribute("academicGrade", teacher.getAcademicDegree().getValue());
             return "welcome";
+        }
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to that resource.");
     }

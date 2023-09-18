@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository("magazineRepository")
 public class MagazineRepository {
-    private static List<Magazine> magazines = new ArrayList<>();
+    private static final List<Magazine> magazines = new ArrayList<>();
 
     static {
         magazines.add(new Magazine("Magazine 1", "1720493728", MagazineType.INDEXED));
