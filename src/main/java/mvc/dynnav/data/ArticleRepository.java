@@ -41,10 +41,10 @@ public class ArticleRepository {
         return null;
     }
 
-    public void addArticle(Article article) {
+    public static void addArticle(Article article) {
         ARTICLES.add(article);
     }
-    public List<Article> getArticlesByAuthor(Teacher author){
+    public static List<Article> getArticlesByAuthor(Teacher author){
         ArrayList<Article> result = new ArrayList<>();
         for (Article a:ARTICLES) {
             if (a.getAuthor().equals(author)){

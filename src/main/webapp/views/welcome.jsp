@@ -12,6 +12,7 @@
     <table border="1">
         <thead>
         <tr>
+            <th>Title</th>
             <th>Magazine Name</th>
             <th>Category</th>
             <th>Status</th>
@@ -22,8 +23,10 @@
         <c:forEach var="article" items="${articles}">
             <tr>
                 <td>${article.title}</td>
-                <td>${article.studentCount}</td>
-                <td>${article.status}</td>
+                <td>${article.magazineName}</td>
+                <td>${article.type}</td>
+                <td>${article.state}</td>
+
             </tr>
         </c:forEach>
         </tbody>

@@ -31,8 +31,16 @@ public class MagazineRepository {
         }
         return null;
     }
+    public Magazine getMagazineByISBN(String isbn) {
+        for (Magazine magazine : magazines) {
+            if (magazine.getISBN().equalsIgnoreCase(isbn)) {
+                return magazine;
+            }
+        }
+        return null;
+    }
 
-    public void addMagazine(Magazine magazine) {
+    public static void addMagazine(Magazine magazine) {
         magazines.add(magazine);
     }
 }

@@ -11,6 +11,28 @@
     <title>Add Article</title>
 </head>
 <body>
+<h2>Add a new article</h2>
+<form method="post" action="${pageContext.request.contextPath}/SubmitArticle">
+    <label for="title">Title:</label> <br>
+    <input type="text" id="title" name="title" required minlength="4"> <br><br>
+    <label for="magazine">Magazine:</label> <br>
+    <select id="magazine" name="magazine" required>
+        <c:forEach var="magazine" items="${magazines}">
+            <option value="${magazine.ISBN}">${magazine.title}</option>
+        </c:forEach>
+    </select> <br><br>
+    State: <br>
+    <label for="accepted">Accepted</label>
+    <input type="radio" id="accepted" name="state" value="ACP"><br>
+
+    <label for="in-revision">In revision</label>
+    <input type="radio" id="in-revision" name="state" value="REV"><br>
+
+    <label for="development">Development</label>
+    <input type="radio" id="development" name="state" value="DES"><br>
+
+    <input type="submit" value="Submit article!">
+</form>
 
 </body>
 </html>
