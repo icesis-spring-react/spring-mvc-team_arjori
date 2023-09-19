@@ -25,7 +25,6 @@ public class ProjectRepository {
         projects.add(new Project("Project 10", 20, ProjectStatus.IN_PROGRESS, TeacherRepository.find("dijkstra1130")));
     }
 
-
     public static List<Project> findAll() {
         return projects;
     }

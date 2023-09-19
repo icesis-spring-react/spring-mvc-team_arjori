@@ -38,7 +38,7 @@
         </thead>
 
         <tbody>
-
+            ${projects}
         </tbody>
     </table>
     <br>
