@@ -22,21 +22,26 @@ public class ArticleController {
 private String username;
     @GetMapping("/addArticle")
     public String addArticle(@CookieValue(defaultValue = "token") String token,Model model) {
-        System.out.println(token);
+        //System.out.println(token);
         Teacher teacher = TeacherRepository.find(token);
         if (teacher != null) {
             username = teacher.getUsername();
             model.addAttribute("username",username);
             List<Magazine> magazines = new MagazineRepository().getAllMagazines();
-            model.addAttribute("magazines", magazines);
+            String magazineTable = magazineTableContent(magazines);
+            model.addAttribute("magazines", magazineTable);
             return "addArticle";
         }
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to that resource.");
     }
 
-    private String magazineTableContent(){
-        return "";
+    private String magazineTableContent(List<Magazine> magazines){
+        String result="";
+        for (Magazine m: magazines) {
+            result+="<option value="+m.getISBN()+">"+m.getTitle()+"</option>";
+        }
+        return result;
     }
     @PostMapping("/SubmitArticle")
     public RedirectView submitArticle(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazineISBN, @RequestParam String stateName) {
