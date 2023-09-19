@@ -15,10 +15,12 @@
 <form method="post" action="${pageContext.request.contextPath}/SubmitArticle">
     <label for="title">Title:</label> <br>
     <input type="text" id="title" name="title" required minlength="4"> <br><br>
+
     <label for="magazine">Magazine:</label> <br>
     <select id="magazine" name="magazine" required>
         ${magazines}
     </select> <br><br>
+
     State: <br>
     <label for="accepted">Accepted</label>
     <input type="radio" id="accepted" name="state" value="ACP"><br>

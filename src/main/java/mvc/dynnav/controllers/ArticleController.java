@@ -44,14 +44,13 @@ private String username;
         return result;
     }
     @PostMapping("/SubmitArticle")
-    public RedirectView submitArticle(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazineISBN, @RequestParam String stateName) {
-
+    public RedirectView submitArticle(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazine, @RequestParam String state) {
         Teacher teacher = TeacherRepository.find(token);
         if (teacher != null) {
-            Magazine magazine = parseMagazine(magazineISBN);
-            ArticleType type = parseArticleType(magazine.getType());
-            ArticleState state = parseArticleState(stateName);
-            if (state!=null && type!=null) ArticleRepository.addArticle(new Article(title,magazine.getTitle(),type,state,teacher));
+            Magazine magazineObj = parseMagazine(magazine);
+            ArticleType type = parseArticleType(magazineObj.getType());
+            ArticleState stateST = parseArticleState(state);
+            if (stateST!=null && type!=null) ArticleRepository.addArticle(new Article(title,magazineObj.getTitle(),type,stateST,teacher));
             RedirectView redirectView = new RedirectView();
             redirectView.setUrl("/addArticle");
             return redirectView;
