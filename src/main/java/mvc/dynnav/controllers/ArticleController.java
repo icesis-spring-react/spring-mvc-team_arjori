@@ -39,7 +39,7 @@ private String username;
         return "";
     }
     @PostMapping("/SubmitArticle")
-    public RedirectView submitSignUp(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazineISBN, @RequestParam String stateName) {
+    public RedirectView submitArticle(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazineISBN, @RequestParam String stateName) {
 
         Teacher teacher = TeacherRepository.find(token);
         if (teacher != null) {
