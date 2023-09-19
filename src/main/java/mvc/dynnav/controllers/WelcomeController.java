@@ -23,17 +23,11 @@ public class WelcomeController {
         Teacher teacher = TeacherRepository.find(username);
         if (teacher != null && username.equals(token)) {
             List<Article> articles = ArticleRepository.getArticlesByAuthor(teacher);
-<<<<<<< HEAD
             List<Project> projects = ProjectRepository.findByAuthor(teacher);
 
             String articleTable = articleTableContent(articles);
             String projectTable = projectTableContent(projects);
 
-=======
-            //List<Project> projects = ProjectRepository
-            String articleTable = articleTableContent(articles);
-            //String projectTable = projectTableContent()
->>>>>>> 51d253c (Added projectTableContent)
             model.addAttribute("fullName", teacher.getFullName());
             model.addAttribute("academicGrade", teacher.getAcademicDegree().getValue());
             model.addAttribute("articles", articleTable);
