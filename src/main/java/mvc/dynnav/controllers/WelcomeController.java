@@ -24,24 +24,40 @@ public class WelcomeController {
         if (teacher != null && username.equals(token)) {
             List<Article> articles = ArticleRepository.getArticlesByAuthor(teacher);
             List<Project> projects = ProjectRepository.findByAuthor(teacher);
-            String table = articleTableContent(articles);
+
+            String articleTable = articleTableContent(articles);
+            String projectTable = projectTableContent(projects);
+
             model.addAttribute("fullName", teacher.getFullName());
             model.addAttribute("academicGrade", teacher.getAcademicDegree().getValue());
-            model.addAttribute("articles",table);
-            model.addAttribute("projects",projects);
+            model.addAttribute("articles", articleTable);
+            model.addAttribute("projects", projectTable);
+
             return "welcome";
         }
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to that resource.");
     }
     private String articleTableContent(List<Article> articles){
-        String result="";
+        String result = "";
         for (Article a: articles) {
-            result+="<tr>" +
+            result += "<tr>" +
                     "<td>"+a.getTitle()+"</td>"+
                     "<td>"+a.getMagazineName()+"</td>"+
                     "<td>"+a.getType()+"</td>"+
                     "<td>"+a.getState()+"</td>" +
+                    "</tr>";
+        }
+        return result;
+    }
+
+    private String projectTableContent(List<Project> projects){
+        String result = "";
+        for (Project p: projects) {
+            result += "<tr>" +
+                    "<td>"+p.getTitle()+"</td>"+
+                    "<td>"+p.getStudentCount()+"</td>"+
+                    "<td>"+p.getStatus()+"</td>"+
                     "</tr>";
         }
         return result;
