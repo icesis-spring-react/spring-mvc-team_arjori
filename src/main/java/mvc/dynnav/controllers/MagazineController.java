@@ -19,7 +19,7 @@ public class MagazineController {
         return "addMagazine";
     }
 
-    @PostMapping("/SubmitMagazine")
+    @PostMapping("/SubmitAddMagazine")
     public RedirectView submitMagazine(@RequestParam String title, @RequestParam String isbn, @RequestParam String magazineType) {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/AddMagazine");
