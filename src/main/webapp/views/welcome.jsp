@@ -8,7 +8,6 @@
     <h3>Academic Grade: ${academicGrade}.</h3>
 
     <h2>Articles</h2>
-
     <table border="1">
         <thead>
         <tr>
@@ -20,19 +19,11 @@
         </thead>
 
         <tbody>
-        <c:forEach var="article" items="${articles}">
-            <tr>
-                <td>${article.title}</td>
-                <td>${article.magazineName}</td>
-                <td>${article.type}</td>
-                <td>${article.state}</td>
-
-            </tr>
-        </c:forEach>
+            ${articles}
         </tbody>
     </table>
     <br>
-        <a href="${pageContext.request.contextPath}/AddArticle">Add Article</a>
+        <a href="${pageContext.request.contextPath}/addArticle">Add Article</a>
     <br>
 
     <h2>Projects</h2>
@@ -47,13 +38,7 @@
         </thead>
 
         <tbody>
-            <c:forEach var="project" items="${projects}">
-                <tr>
-                    <td>${project.title}</td>
-                    <td>${project.studentCount}</td>
-                    <td>${project.status}</td>
-                </tr>
-            </c:forEach>
+
         </tbody>
     </table>
     <br>

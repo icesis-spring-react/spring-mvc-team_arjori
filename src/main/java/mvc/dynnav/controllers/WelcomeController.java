@@ -21,12 +21,25 @@ public class WelcomeController {
         Teacher teacher = TeacherRepository.find(username);
         if (teacher != null && username.equals(token)) {
             List<Article> articles = ArticleRepository.getArticlesByAuthor(teacher);
+            String table = articleTableContent(articles);
             model.addAttribute("fullName", teacher.getFullName());
             model.addAttribute("academicGrade", teacher.getAcademicDegree().getValue());
-            model.addAttribute("articles",articles);
+            model.addAttribute("articles",table);
             return "welcome";
         }
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to that resource.");
+    }
+    private String articleTableContent(List<Article> articles){
+        String result="";
+        for (Article a: articles) {
+            result+="<tr>" +
+                    "<td>"+a.getTitle()+"</td>"+
+                    "<td>"+a.getMagazineName()+"</td>"+
+                    "<td>"+a.getType()+"</td>"+
+                    "<td>"+a.getState()+"</td>" +
+                    "</tr>";
+        }
+        return result;
     }
 }

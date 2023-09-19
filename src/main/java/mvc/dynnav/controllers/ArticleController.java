@@ -22,6 +22,7 @@ public class ArticleController {
 private String username;
     @GetMapping("/addArticle")
     public String addArticle(@CookieValue(defaultValue = "token") String token,Model model) {
+        System.out.println(token);
         Teacher teacher = TeacherRepository.find(token);
         if (teacher != null) {
             username = teacher.getUsername();
@@ -32,6 +33,10 @@ private String username;
         }
         else
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You don't have access to that resource.");
+    }
+
+    private String magazineTableContent(){
+        return "";
     }
     @PostMapping("/SubmitArticle")
     public RedirectView submitSignUp(@CookieValue(defaultValue = "token") String token, @RequestParam String title, @RequestParam String magazineISBN, @RequestParam String stateName) {
