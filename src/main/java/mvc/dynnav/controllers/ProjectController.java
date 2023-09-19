@@ -32,10 +32,12 @@ public class ProjectController {
         System.out.println("Status: " + projectStatus);
 
         ProjectStatus status = parseStatus(projectStatus);
-
         System.out.println("Parsed status: " + status);
 
-        ProjectRepository.add(new Project(title, studentsCount, status));
+        String username = getUsername(request);
+        Teacher author = TeacherRepository.find(username);
+
+        ProjectRepository.add(new Project(title, studentsCount, status, author));
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(request.getContextPath() + "/AddProject");
@@ -54,9 +56,7 @@ public class ProjectController {
         }
     }
 
-    @GetMapping("/GoBack")
-    public RedirectView goBack(HttpServletRequest request, HttpServletResponse response) {
-        RedirectView redirectView = new RedirectView();
+    private String getUsername(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String username = null;
 
@@ -64,16 +64,22 @@ public class ProjectController {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     username = cookie.getValue();
-                    redirectView.setUrl("/" + username);
                 }
             }
+        }
 
-            if (username == null)
-                redirectView.setUrl("/SignIn");
+        return username;
+    }
 
-        } else
-            redirectView.setUrl("/SignIn");
-
+    @GetMapping("/GoBack")
+    public RedirectView goBack(HttpServletRequest request, HttpServletResponse response) {
+        RedirectView redirectView = new RedirectView();
+        String username = getUsername(request);
+        if (username != null) {
+            redirectView.setUrl(request.getContextPath() + "/" + username);
+        } else {
+            redirectView.setUrl(request.getContextPath() + "/SignIn");
+        }
         return redirectView;
     }
 }

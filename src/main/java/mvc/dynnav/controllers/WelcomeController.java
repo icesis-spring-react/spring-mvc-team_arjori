@@ -1,8 +1,10 @@
 package mvc.dynnav.controllers;
 
 import mvc.dynnav.data.ArticleRepository;
+import mvc.dynnav.data.ProjectRepository;
 import mvc.dynnav.data.TeacherRepository;
 import mvc.dynnav.model.Article;
+import mvc.dynnav.model.Project;
 import mvc.dynnav.model.Teacher;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,10 +23,12 @@ public class WelcomeController {
         Teacher teacher = TeacherRepository.find(username);
         if (teacher != null && username.equals(token)) {
             List<Article> articles = ArticleRepository.getArticlesByAuthor(teacher);
+            List<Project> projects = ProjectRepository.findByAuthor(teacher);
             String table = articleTableContent(articles);
             model.addAttribute("fullName", teacher.getFullName());
             model.addAttribute("academicGrade", teacher.getAcademicDegree().getValue());
             model.addAttribute("articles",table);
+            model.addAttribute("projects",projects);
             return "welcome";
         }
         else

@@ -11,13 +11,16 @@ public class Project {
     @Value("#{T(mvc.dynnav.model.ProjectStatus).IN_PROGRESS}")
     private ProjectStatus status;
 
+    private Teacher author;
+
     public Project() {
     }
 
-    public Project(String title, int studentCount, ProjectStatus status) {
+    public Project(String title, int studentCount, ProjectStatus status, Teacher author) {
         this.title = title;
         this.studentCount = studentCount;
         this.status = status;
+        this.author = author;
     }
 
     public String getTitle() {
@@ -43,4 +46,8 @@ public class Project {
     public void setStatus(ProjectStatus status) {
         this.status = status;
     }
+
+    public Teacher getAuthor() { return author; }
+
+    public void setAuthor(Teacher author) { this.author = author; }
 }
