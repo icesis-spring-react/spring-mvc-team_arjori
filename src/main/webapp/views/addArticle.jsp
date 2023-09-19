@@ -17,9 +17,7 @@
     <input type="text" id="title" name="title" required minlength="4"> <br><br>
     <label for="magazine">Magazine:</label> <br>
     <select id="magazine" name="magazine" required>
-        <c:forEach var="magazine" items="${magazines}">
-            <option value="${magazine.ISBN}">${magazine.title}</option>
-        </c:forEach>
+        ${magazines}
     </select> <br><br>
     State: <br>
     <label for="accepted">Accepted</label>
