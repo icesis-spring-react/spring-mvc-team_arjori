@@ -1,5 +1,7 @@
 package mvc.dynnav.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import mvc.dynnav.data.MagazineRepository;
 import mvc.dynnav.model.Magazine;
 import mvc.dynnav.model.MagazineType;
@@ -18,15 +20,19 @@ public class MagazineController {
     }
 
     @PostMapping("/SubmitMagazine")
-    public RedirectView submitMagazine(@RequestParam String title, @RequestParam String isbn, @RequestParam String type) {
+    public RedirectView submitMagazine(@RequestParam String title, @RequestParam String isbn, @RequestParam String magazineType) {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/AddMagazine");
 
-        MagazineType magazineType = parseMagazineType(type);
-        if (magazineType != null) {
-            MagazineRepository.addMagazine(new Magazine(title, isbn, magazineType));
-            return redirectView;
+        MagazineType type = parseMagazineType(magazineType);
+        if (type != null) {
+            MagazineRepository.addMagazine(new Magazine(title, isbn, type));
         }
+
+        System.out.println("Title: " + title);
+        System.out.println("ISBN: " + isbn);
+        System.out.println("Type: " + magazineType);
+
         return redirectView;
     }
 
@@ -40,5 +46,4 @@ public class MagazineController {
                 return null;
         }
     }
-
 }

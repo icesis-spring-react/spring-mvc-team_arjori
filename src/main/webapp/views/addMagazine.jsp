@@ -30,7 +30,7 @@
 
         <br> <br>
 
-        <a href="${pageContext.request.contextPath}/GoBack">Go back to article page</a>
+        <a href="${pageContext.request.contextPath}/AddArticle">Go back to article page</a>
         <br>
     </form>
 </body>
