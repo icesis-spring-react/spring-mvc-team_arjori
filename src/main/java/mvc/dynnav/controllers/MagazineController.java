@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller("magazineController")
 public class MagazineController {
 
-    @GetMapping("/addMagazine")
+    @GetMapping("/AddMagazine")
     public String addMagazine() {
         return "addMagazine";
     }
@@ -20,7 +20,7 @@ public class MagazineController {
     @PostMapping("/SubmitMagazine")
     public RedirectView submitMagazine(@RequestParam String title, @RequestParam String isbn, @RequestParam String type) {
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/addMagazine");
+        redirectView.setUrl("/AddMagazine");
 
         MagazineType magazineType = parseMagazineType(type);
         if (magazineType != null) {
