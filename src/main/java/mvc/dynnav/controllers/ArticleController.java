@@ -50,7 +50,12 @@ private String username;
             Magazine magazineObj = parseMagazine(magazine);
             ArticleType type = parseArticleType(magazineObj.getType());
             ArticleState stateST = parseArticleState(state);
-            if (stateST!=null && type!=null) ArticleRepository.addArticle(new Article(title,magazineObj.getTitle(),type,stateST,teacher));
+            if (stateST!=null && type!=null) {
+                ArticleRepository.addArticle(new Article(title,magazineObj.getTitle(),type,stateST,teacher));
+                System.out.println("Title: " + title);
+                System.out.println("Magazine: " + magazineObj.getTitle());
+                System.out.println("State: " + stateST);
+            }
             RedirectView redirectView = new RedirectView();
             redirectView.setUrl("/addArticle");
             return redirectView;
